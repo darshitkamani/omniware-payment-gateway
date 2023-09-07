@@ -5,7 +5,7 @@
     <application
         android:label="payment_gateway_flutter_example"
         android:icon="@mipmap/ic_launcher"
-        android:theme="@style/Theme.AppCompat.Light"
+        
         >
 
         <activity
