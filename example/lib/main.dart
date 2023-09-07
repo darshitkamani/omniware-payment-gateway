@@ -105,7 +105,7 @@ class _MyAppState extends State<_AppState> {
       //Please refre this url for reponse code https://pgandroidintegrations.docs.stoplight.io/response-codes
       var r=jsonDecode(response);
       print(r['status']);
-      print(r['payment_response']);
+      print(r['payment_response']); 
 
     } on PlatformException {
       response = 'Failed to get initiate.';
