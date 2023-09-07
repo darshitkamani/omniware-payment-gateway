@@ -56,28 +56,29 @@ class _MyAppState extends State<_AppState> {
                       color: Colors.blue,
                       child: Text('Pay Now'),
                       onPressed: () {
-                    // For payment parammeters to refer 
-                    //https://pgandroidintegrations.docs.stoplight.io/request-param-list
-                    var params = {
-                    'api_key': '<API_KEY>',
-                    'hash': '<HASH_KEY>',
-                    'order_id': 'TEST4000',
-                    'mode': 'LIVE',
-                    'description': 'Test',
-                    'currency': 'INR',
-                    'amount': '2',
-                    'name': 'Senthil',
-                    'email': 'emailsenthil@test.com',
-                    'phone': '9597403366',
-                    'city': 'Chennai',
-                    'state': 'Tamilnadu',
-                    'country': 'IND',
-                    'zip_code': '630501',
-                    'address_line_1': 'ad1',
-                    'address_line_2': 'ad2',
-                    'return_url': 'http://localhost:8888/paymentresponse'};
-                    // Initiate payemnt
-                    open(params, context);
+                        // For payment parammeters to refer
+                        //https://pgandroidintegrations.docs.stoplight.io/request-param-list
+                        var params = {
+                          'api_key': '<API_KEY>',
+                          'hash': '<HASH_KEY>',
+                          'order_id': 'TEST4000',
+                          'mode': 'LIVE',
+                          'description': 'Test',
+                          'currency': 'INR',
+                          'amount': '2',
+                          'name': 'Senthil',
+                          'email': 'emailsenthil@test.com',
+                          'phone': '9597403366',
+                          'city': 'Chennai',
+                          'state': 'Tamilnadu',
+                          'country': 'IND',
+                          'zip_code': '630501',
+                          'address_line_1': 'ad1',
+                          'address_line_2': 'ad2',
+                          'return_url': 'http://localhost:8888/paymentresponse'
+                        };
+                        // Initiate payemnt
+                        open(params, context);
                       },
                     )),
                 if (paymentResponse.isNotEmpty)
@@ -99,14 +100,12 @@ class _MyAppState extends State<_AppState> {
 
   void open(Map<String, dynamic> request, BuildContext context) async {
     try {
-      response = await PaymentGatewayFlutter.open(
-          '<PAYMENT_API_URL>', request);
+      response = await PaymentGatewayFlutter.open('<PAYMENT_API_URL>', request);
       // Response Handling
       //Please refre this url for reponse code https://pgandroidintegrations.docs.stoplight.io/response-codes
-      var r=jsonDecode(response);
+      var r = jsonDecode(response);
       print(r['status']);
-      print(r['payment_response']); 
-
+      print(r['payment_response']);
     } on PlatformException {
       response = 'Failed to get initiate.';
     }
@@ -114,6 +113,4 @@ class _MyAppState extends State<_AppState> {
       paymentResponse = response;
     });
   }
-
-
 }
